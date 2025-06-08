@@ -1,0 +1,25 @@
+name: Dump
+on:
+  push:
+    tags:
+    - [a-zA-Z_]+-[0-9]+
+permissions:
+  contents: write
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
+      with:
+        repository: worawit/blutter
+        path: .blutter
+    - run: pip install dekshell
+    - run: |
+        apt install python3-pyelftools python3-requests git cmake ninja-build build-essential pkg-config libicu-dev libcapstone-dev
+    - run: dekshell rf main.pysh
+    - uses: ncipollo/release-action@v1
+      with:
+        skipIfReleaseExists: true
+        generateReleaseNotes: true
+        artifacts: app--*.zip

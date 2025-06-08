@@ -1,0 +1,8 @@
+app: {'{$GITHUB_REF_NAME}'.rsplit('-', 1)[0]}
+out: {fpp}/.out
+
+>path.md {out}
+
+python3 .blutter/blutter.py {fpp}/apps/{app}/lib/arm64-v8a {out}
+
+>>compress {out} {fpp}/app--{$GITHUB_REF_NAME}.zip
