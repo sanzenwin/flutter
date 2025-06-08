@@ -2,7 +2,7 @@ name: Dump
 on:
   push:
     tags:
-    - [a-zA-Z_]+-[0-9]+
+    - "[a-zA-Z_]+-[0-9]+"
 permissions:
   contents: write
 jobs:
