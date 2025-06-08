@@ -1,4 +1,4 @@
-app: {'{$GITHUB_REF_NAME}'.rsplit('-', 1)[0]}
+app: {'{$GITHUB_REF_NAME}'.rsplit('-')[1]}
 out: {fpp}/.out
 
 >path.md {out}
