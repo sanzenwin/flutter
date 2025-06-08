@@ -16,7 +16,7 @@ jobs:
         path: .blutter
     - run: pip install dekshell
     - run: |
-        apt install python3-pyelftools python3-requests git cmake ninja-build build-essential pkg-config libicu-dev libcapstone-dev
+        sudo apt install python3-pyelftools python3-requests git cmake ninja-build build-essential pkg-config libicu-dev libcapstone-dev
     - run: dekshell rf main.pysh
     - uses: ncipollo/release-action@v1
       with:
